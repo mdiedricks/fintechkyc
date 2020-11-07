@@ -1,0 +1,19 @@
+{
+  "name": "fintechkyc",
+  "version": "1.0.0",
+  "description": "NodeJS Typescript function to perform KYC checks through a third-party provider API endpoint",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdiedricks/fintechkyc.git"
+  },
+  "author": "mdiedricks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdiedricks/fintechkyc/issues"
+  },
+  "homepage": "https://github.com/mdiedricks/fintechkyc#readme"
+}
