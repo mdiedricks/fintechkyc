@@ -29,19 +29,26 @@ const retrieveUserDetails = (userObject: userObjectType) => {
 
 
     // TODO make get request
-    axios({
+    let apiResponse = axios({
         method: 'post',
         url: apiEndpoint, 
         data: validatedUserObject,
         headers: apiHeader
         })
-        .then(
+        .then( res => {
+            let data = res.data;
             // TODO run check on API response - return value
-        )
-        .catch(
+
+            return data;
+        })
+        .catch( err => {
             // TODO error handling - return error if any
-        )
+            console.log(err)
+        })
+    
+    return apiResponse;
 }
+
 
 const validateUserInput = (userInputObject: userObjectType) => {
     let validatedUserInput = userInputObject;
