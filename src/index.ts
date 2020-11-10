@@ -1,45 +1,16 @@
-// * IMPORTS
-import axios  from 'axios';
-import * as dotenv from 'dotenv';
-dotenv.config();
+import retrieveUser from './retrieveUser';
 
-// * CONSTANTS
-const API_KEY = process.env.API_KEY;
-const API_ENDPOINT = '';
-const API_HEADER = {
-    "token" : API_KEY,
-    "Content-type": 'application/json'
-};
-
-
-// * FUNCTION DECLARATION
-const retrieveUserDetails = (birthDate, givenName, middleName, familyName, licenseNumber, stateOfIssue, expiryDate) => {
-    const requestObject = {
-        "birthDate" : birthDate,
-        "givenName" : givenName,
-        "middleName" : middleName,
-        "familyName" : familyName,
-        "licenceNumber" : licenseNumber,
-        "stateOfIssue" : stateOfIssue,
-        "expiryDate" : expiryDate
-    };
-    // TODO validate user input - possibly in separate functions
-    validateUserInput(requestObject)
-
-
-
-    // TODO make get request
-    axios.get('', requestObject)
-        .then(
-            // TODO run check on API response
-        )
-        .catch(
-            // TODO error handling
-        )
+// * Simulated user input based on test document
+let userInput = {
+	"birthDate":"1985-02-08",
+	"givenName":"James",
+	"middleName":"Robert",
+	"familyName":"Smith",
+	"licenceNumber":"94977000",
+	"stateOfIssue":"NSW",
+	"expiryDate":"2020-01-01"
 }
 
-const validateUserInput = (userObject) => {
+let apiResponse = retrieveUser(userInput);
 
-}
-
-export default retrieveUserDetails;
+console.log(apiResponse);
