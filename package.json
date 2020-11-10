@@ -2,9 +2,10 @@
   "name": "fintechkyc",
   "version": "1.0.0",
   "description": "NodeJS Typescript function to perform KYC checks through a third-party provider API endpoint",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "test"
+    "start": "node dist/index.js",
+    "test": "Jest"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,17 @@
   "bugs": {
     "url": "https://github.com/mdiedricks/fintechkyc/issues"
   },
-  "homepage": "https://github.com/mdiedricks/fintechkyc#readme"
+  "homepage": "https://github.com/mdiedricks/fintechkyc#readme",
+  "dependencies": {
+    "@types/node": "^14.14.7",
+    "axios": "^0.21.0",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.4.4",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3"
+  }
 }
