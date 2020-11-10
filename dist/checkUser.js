@@ -58,19 +58,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// * IMPORTS =======
+// * ======= IMPORTS =======
 var axios_1 = __importDefault(require("axios"));
 var dotenv = __importStar(require("dotenv"));
 dotenv.config();
-// * CONSTANTS =======
+// * ======= CONSTANTS =======
 var apiKey = process.env.API_KEY;
 var apiEndpoint = process.env.API_ENDPOINT;
 var apiHeader = {
     'Authorization': "Bearer " + apiKey,
     "Content-type": 'application/json'
 };
-// * PRIMARY FUNCTION =======
-var retrieveUserDetails = function (userObject) { return __awaiter(void 0, void 0, void 0, function () {
+// * ======= PRIMARY FUNCTION =======
+var checkUser = function (userObject) { return __awaiter(void 0, void 0, void 0, function () {
     var userRequestObject, validatedUserObject, apiResponse;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -92,12 +92,13 @@ var retrieveUserDetails = function (userObject) { return __awaiter(void 0, void 
                 apiResponse = _a.sent();
                 // TODO run check on response object
                 // let responseCheck = runResponseCheck(apiResponse);
+                // * Return response, modify state or make function call
                 console.log(apiResponse);
                 return [2 /*return*/];
         }
     });
 }); };
-// * HELPER FUNCTIONS =======
+// * ======= HELPER FUNCTIONS =======
 var validateUserInput = function (userInputObject) { return __awaiter(void 0, void 0, void 0, function () {
     var validatedUserInput;
     return __generator(this, function (_a) {
@@ -138,5 +139,5 @@ var runResponseCheck = function (apiBlob) {
     var finalResponse = apiBlob;
     return null;
 };
-exports.default = retrieveUserDetails;
-//# sourceMappingURL=retrieveUser.js.map
+exports.default = checkUser;
+//# sourceMappingURL=checkUser.js.map

@@ -1,4 +1,4 @@
-import retrieveUser from './retrieveUser';
+import checkUser from './checkUser';
 
 // * Simulated user input based on test document
 let userInput = {
@@ -11,6 +11,4 @@ let userInput = {
 	"expiryDate":"2020-01-01"
 }
 
-let apiResponse = retrieveUser(userInput);
-
-console.log(apiResponse);
+checkUser(userInput);
