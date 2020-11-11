@@ -7,7 +7,7 @@ NodeJS Typescript function to perform KYC checks through a third-party provider 
 ```npm install```
 
 ### Set up dotenv file with following structure
-``` API_KEY = ' <api_key> ' ```
+``` API_KEY = '<api_key>' ```
 ``` API_ENDPOINT= `<endpoint>' ```
 
 ### Run Typescript compiler
