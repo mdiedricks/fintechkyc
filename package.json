@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "test": "Jest"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,8 @@
   "dependencies": {
     "@types/node": "^14.14.7",
     "axios": "^0.21.0",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",
