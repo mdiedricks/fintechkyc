@@ -3,11 +3,15 @@ NodeJS Typescript function to perform KYC checks through a third-party provider 
 
 # To run this function
 
-Install dependencies
+### Install dependencies
 ```npm install```
 
-Run Typescript compiler
+### Set up dotenv file with following structure
+API_KEY='<api_key>'
+API_ENDPOINT='<endpoint>'
+
+### Run Typescript compiler
 ``` tsc ```
 
-Run application from dist folder
+### Run application from dist folder
 ```node dist/index.js```
