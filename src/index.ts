@@ -20,33 +20,33 @@ const apiHeader = {
     "Content-type": 'application/json'
 };
 
-// * PRIMARY FUNCTION  ============================
 
+
+// * PRIMARY FUNCTION  ============================
 const checkUser = async (userObject: userObjectType) => {
     // * 1. DONE return validated object
-    const validatedUserObject : boolean = validateUserInput(userObject); 
+    const userValidationResult : boolean = validateUserInput(userObject); 
     
     // *2.  DONE check if object has been validated
-    if(!validatedUserObject){
+    if(!userValidationResult){
         console.error(`Error: Please fill out all required fields`);
         return; 
     }
 
     // * 3. DONE returns data object
-    // const apiResponse = await makeApiRequest(validatedUserObject, apiEndpoint, apiHeader); 
+    const apiResponse = await makeApiRequest(userObject, apiEndpoint, apiHeader); 
 
     // TODO 4. return response code
-    // let responseCheck = checkApiResponse(apiResponse ); 
+    let responseCheck = checkApiResponse(apiResponse ); 
     
-    console.log('Function complete');
+    console.log(responseCheck);
 }
 
 
+
 // * HELPER FUNCTIONS  ============================
-
 const validateUserInput = (userInputObject : userObjectType) => {
-    console.log('Checking all inputs have been filled...')
-
+    
     // * DONE check user input exists
     for(let key in userInputObject){  
         // The provided document states: 'middleName' and 'expiryDate' are not "required"
@@ -102,11 +102,7 @@ const validateUserInput = (userInputObject : userObjectType) => {
     return true;
 }
 
-let reChecks  = [
-    /\d{4}-\d{2}-\d{2}/,
-    /\w{0,100}/,
-    /\d+/
-]
+let reChecks = [/\d{4}-\d{2}-\d{2}/, /\w{0,100}/, /\d+/]
 let states = ['NSW', 'QLD', 'SA', 'TAS', 'VIC', 'WA', 'ACT', 'NT'];
 
 const checkValueExists = (value : string) =>{
@@ -138,9 +134,28 @@ async function makeApiRequest(reqObject : object, endPoint : any, headers : any)
 }
 
 const checkApiResponse = (apiBlob : any) =>{
-    let finalResponse = apiBlob;
-    return finalResponse;
+
+    switch(apiBlob.verificationResultCode){
+        case 'Y':
+            //do something
+            return {'kycResult' : true}                       
+        case 'N':
+            //do something
+            return {'kycResult' : false}       
+        case 'D' :
+            //do something
+            return {code: 'D',message: 'Document Error'}    
+        case  'S':
+            //do something
+            return {code: 'S',message: 'Server Error'}       
+        default:
+            console.log(`No result received`)
+            break;
+    }
+    return null;
 }
+
+
 
 // * TYPE DECLARATIONS ============================
 interface userObjectType {
@@ -153,7 +168,10 @@ interface userObjectType {
     "expiryDate" : string
 }
 
+
+
 // * RUN MAIN PROGRAM =============================
-console.log(`Starting first test.....`);
 checkUser(userInput);
-console.log(`Finishing first test.....`);
+checkUser(userInput);
+checkUser(userInput);
+

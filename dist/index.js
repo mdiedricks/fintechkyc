@@ -79,25 +79,27 @@ var apiHeader = {
 };
 // * PRIMARY FUNCTION  ============================
 var checkUser = function (userObject) { return __awaiter(void 0, void 0, void 0, function () {
-    var validatedUserObject;
+    var userValidationResult, apiResponse, responseCheck;
     return __generator(this, function (_a) {
-        validatedUserObject = validateUserInput(userObject);
-        // * run check if object has been validated
-        if (!validatedUserObject) {
-            console.error("Error: Please fill out all required fields");
-            return [2 /*return*/];
+        switch (_a.label) {
+            case 0:
+                userValidationResult = validateUserInput(userObject);
+                // *2.  DONE check if object has been validated
+                if (!userValidationResult) {
+                    console.error("Error: Please fill out all required fields");
+                    return [2 /*return*/];
+                }
+                return [4 /*yield*/, makeApiRequest(userObject, apiEndpoint, apiHeader)];
+            case 1:
+                apiResponse = _a.sent();
+                responseCheck = checkApiResponse(apiResponse);
+                console.log(responseCheck);
+                return [2 /*return*/];
         }
-        // * 2. DONE returns data object
-        // const apiResponse = await makeApiRequest(validatedUserObject, apiEndpoint, apiHeader); 
-        // TODO 3. return response code
-        // let responseCheck = checkApiResponse(apiResponse ); 
-        console.log('Function complete');
-        return [2 /*return*/];
     });
 }); };
 // * HELPER FUNCTIONS  ============================
 var validateUserInput = function (userInputObject) {
-    console.log('Checking all inputs have been filled...');
     // * DONE check user input exists
     for (var key in userInputObject) {
         // The provided document states: 'middleName' and 'expiryDate' are not "required"
@@ -152,11 +154,7 @@ var validateUserInput = function (userInputObject) {
     }
     return true;
 };
-var reChecks = [
-    /\d{4}-\d{2}-\d{2}/,
-    /\w{0,100}/,
-    /\d+/
-];
+var reChecks = [/\d{4}-\d{2}-\d{2}/, /\w{0,100}/, /\d+/];
 var states = ['NSW', 'QLD', 'SA', 'TAS', 'VIC', 'WA', 'ACT', 'NT'];
 var checkValueExists = function (value) {
     if (value.length !== 0 && value) {
@@ -191,11 +189,27 @@ function makeApiRequest(reqObject, endPoint, headers) {
     });
 }
 var checkApiResponse = function (apiBlob) {
-    var finalResponse = apiBlob;
-    return finalResponse;
+    switch (apiBlob.verificationResultCode) {
+        case 'Y':
+            //do something
+            return { 'kycResult': true };
+        case 'N':
+            //do something
+            return { 'kycResult': false };
+        case 'D':
+            //do something
+            return { code: 'D', message: 'Document Error' };
+        case 'S':
+            //do something
+            return { code: 'S', message: 'Server Error' };
+        default:
+            console.log("No result received");
+            break;
+    }
+    return null;
 };
 // * RUN MAIN PROGRAM =============================
-console.log("Starting first test.....");
 checkUser(userInput);
-console.log("Finishing first test.....");
+checkUser(userInput);
+checkUser(userInput);
 //# sourceMappingURL=index.js.map
