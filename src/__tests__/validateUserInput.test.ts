@@ -16,7 +16,6 @@ describe('Validate user input', () => {
     test("It should match a regexp", () => {
 		let input = testUserObject;
 		
-		let ouput = /\d{4}-\d{2}-\d{2}/;
-        expect(input).toMatch(ouput);
+        expect(validateUserInput(input)).toBe(true);
     });
 });
