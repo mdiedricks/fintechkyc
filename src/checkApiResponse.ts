@@ -1,4 +1,4 @@
-export const checkApiResponse = (apiBlob : any) =>{
+const checkApiResponse = (apiBlob : any) =>{
 
     switch(apiBlob.verificationResultCode){
         case 'Y':
@@ -19,3 +19,5 @@ export const checkApiResponse = (apiBlob : any) =>{
     }
     return null;
 }
+
+export default checkApiResponse;

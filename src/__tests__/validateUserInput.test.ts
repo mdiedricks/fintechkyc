@@ -10,8 +10,6 @@ let testUserObject = {
 	"expiryDate":"2020-01-01" //number pattern YYYY-MM-DD
 }
 
-
-
 describe('Validate user input', () => {
     test("It should match a regexp", () => {
 		let input = testUserObject;

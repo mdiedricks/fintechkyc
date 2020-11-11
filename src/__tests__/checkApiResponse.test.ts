@@ -1,4 +1,4 @@
-import { checkApiResponse } from '../checkApiResponse';
+import checkApiResponse  from '../checkApiResponse';
 
 let testApiObjectY = {
     "verificationDocumentResult": {

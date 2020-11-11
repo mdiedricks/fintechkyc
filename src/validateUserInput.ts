@@ -1,4 +1,5 @@
 import { userObjectType} from './typeDeclarations';
+import checkValueExists from './checkValueExists';
 
 const validateUserInput = (userInputObject : userObjectType) => {
     
@@ -60,10 +61,10 @@ let states = ['NSW', 'QLD', 'SA', 'TAS', 'VIC', 'WA', 'ACT', 'NT'];
 export default validateUserInput;
 
 
-export const checkValueExists = (value : string) =>{
-    if(value.length !== 0 && value && value != null){
-        return true;
-    } else {
-        return false;
-    }
-}
+// export const checkValueExists = (value : string) =>{
+//     if(value.length !== 0 && value && value != null){
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
