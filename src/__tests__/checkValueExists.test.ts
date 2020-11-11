@@ -1,4 +1,4 @@
-import {checkValueExists} from '../validateUserInput';
+import checkValueExists from '../checkValueExists';
 
 let testUserObject = "1985-02-08";
 

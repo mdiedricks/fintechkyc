@@ -65,4 +65,3 @@ function makeApiRequest(reqObject, endPoint, headers) {
     });
 }
 exports.default = makeApiRequest;
-//# sourceMappingURL=makeApiRequest.js.map

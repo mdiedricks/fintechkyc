@@ -1,42 +1,22 @@
-import * as dotenv from 'dotenv';
-dotenv.config();
 import validateUserInput from './validateUserInput';
 import checkApiResponse from './checkApiResponse';
 import makeApiRequest from './makeApiRequest';
 import {userObjectType} from './typeDeclarations';
 
-const apiKey = process.env.API_KEY;
-const apiEndpoint  = process.env.API_ENDPOINT;
-const apiHeader = {
-    'Authorization': `Bearer ${apiKey}`,
-    "Content-type": 'application/json'
-};
-
-
-const checkUser = async (userObject: userObjectType) => {
-    // assign input to new Object
-    let userRequestObject = {
-        "birthDate" : userObject.birthDate,
-        "givenName" : userObject.givenName,
-        "middleName" : userObject.middleName,
-        "familyName" : userObject.familyName,
-        "licenceNumber" : userObject.licenceNumber,
-        "stateOfIssue" : userObject.stateOfIssue,
-        "expiryDate" : userObject.expiryDate
-    };
+const checkUser = async (userObject: userObjectType, apiEndPt :any, apiHder:any) => {
+    // 1 - validate user input
+    const userValidationResult : boolean = validateUserInput(userObject); 
+    if(!userValidationResult){
+        console.error(`Error: Please fill out all required fields`);
+        return; 
+    }
+    // 2 - make api request with user object
+    const apiResponse = await makeApiRequest(userObject, apiEndPt, apiHder); 
     
-    // validate user input
-    // TODO return calidated object
-    const validatedUserObject : any = validateUserInput(userRequestObject); 
-
-    // make get request to API
-    // * DONE returns data object
-    const apiResponse = await makeApiRequest(validatedUserObject, apiEndpoint, apiHeader); 
-
-    // run check on response object
-    // TODO return response code
+    //3 - generate response based on verification code
     let responseCheck = checkApiResponse(apiResponse ); 
     
+    //4 - output reponse code to console
     console.log(responseCheck);
 }
 

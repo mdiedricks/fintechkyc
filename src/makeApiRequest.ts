@@ -10,7 +10,7 @@ async function makeApiRequest(reqObject : object, endPoint : any, headers : any)
         data: JSON.stringify(reqObject),
         headers: headers 
     })
-    .then( res => {
+    .then( res  => {
         responseObj = res.data;
     })
     .catch( err => {

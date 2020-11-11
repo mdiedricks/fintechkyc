@@ -1,5 +1,9 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+var validateUserInput_1 = __importDefault(require("../validateUserInput"));
 var testUserObject = {
     "birthDate": "1985-02-08",
     "givenName": "James",
@@ -12,8 +16,6 @@ var testUserObject = {
 describe('Validate user input', function () {
     test("It should match a regexp", function () {
         var input = testUserObject;
-        var ouput = /\d{4}-\d{2}-\d{2}/;
-        expect(input).toMatch(ouput);
+        expect(validateUserInput_1.default(input)).toBe(true);
     });
 });
-//# sourceMappingURL=validateUserInput.test.js.map
