@@ -27,7 +27,7 @@ const checkUser = async (userObject: userObjectType) => {
     
     // validate user input
     // TODO return calidated object
-    const validatedUserObject : object = validateUserInput(userRequestObject); 
+    const validatedUserObject : any = validateUserInput(userRequestObject); 
 
     // make get request to API
     // * DONE returns data object
