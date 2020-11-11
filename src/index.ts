@@ -55,7 +55,7 @@ const validateUserInput = (userInputObject : userObjectType) => {
             if(!valueExists) return false;
         }
     }
-    console.log('Success: All inputs have been filled')
+    
 
     // * DONE check user input matches regexp values
     for(let key in userInputObject){
