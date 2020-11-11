@@ -39,24 +39,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// import * as dotenv from 'dotenv';
-// dotenv.config();
 var validateUserInput_1 = __importDefault(require("./validateUserInput"));
 var checkApiResponse_1 = __importDefault(require("./checkApiResponse"));
 var makeApiRequest_1 = __importDefault(require("./makeApiRequest"));
-// const apiKey = process.env.API_KEY;
-// const apiEndpoint  = process.env.API_ENDPOINT;
-// const apiHeader = {
-//     'Authorization': `Bearer ${apiKey}`,
-//     "Content-type": 'application/json'
-// };
 var checkUser = function (userObject, apiEndPt, apiHder) { return __awaiter(void 0, void 0, void 0, function () {
     var userValidationResult, apiResponse, responseCheck;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 userValidationResult = validateUserInput_1.default(userObject);
-                // *2.  DONE check if object has been validated
                 if (!userValidationResult) {
                     console.error("Error: Please fill out all required fields");
                     return [2 /*return*/];
@@ -65,6 +56,7 @@ var checkUser = function (userObject, apiEndPt, apiHder) { return __awaiter(void
             case 1:
                 apiResponse = _a.sent();
                 responseCheck = checkApiResponse_1.default(apiResponse);
+                //4 - output reponse code to console
                 console.log(responseCheck);
                 return [2 /*return*/];
         }

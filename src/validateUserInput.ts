@@ -59,12 +59,3 @@ let reChecks = [/\d{4}-\d{2}-\d{2}/, /\w{0,100}/, /\d+/]
 let states = ['NSW', 'QLD', 'SA', 'TAS', 'VIC', 'WA', 'ACT', 'NT'];
 
 export default validateUserInput;
-
-
-// export const checkValueExists = (value : string) =>{
-//     if(value.length !== 0 && value && value != null){
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
