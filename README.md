@@ -1,8 +1,16 @@
-# fintechkyc
-NodeJS Typescript function to perform KYC checks through a third-party provider API endpoint
+# Fintechkyc - Technical Test
+> NodeJS Typescript function to perform KYC checks through a third-party provider API endpoint
 
-# To run this function
+## Table of Contents
+* [General Information](#general-information)
+* [Launch Instructions](#launch-instructions)
 
+## General Information
+This was a technical test I was given for role, where I was to build a function that could be called from Node.
+
+There were a few criteria to meet in creating the function, including data manipulation, writing tests and desired output.
+
+## Launch Instructions
 ### Install dependencies
 ```npm install```
 
