@@ -1,4 +1,4 @@
-# Fintechkyc - Technical Test
+# Fintech KYC - Technical Test
 > NodeJS Typescript function to perform KYC checks through a third-party provider API endpoint
 
 ## Table of Contents
